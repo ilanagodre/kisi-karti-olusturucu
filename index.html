@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kişi Kartı Oluşturucu</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <h1>Kişi Kartı Oluşturucu</h1>
+      <p>Oyuncu bilgilerini ve fotoğrafları girin, kartı oluşturup PNG olarak indirin.</p>
+    </header>
+
+    <div class="layout">
+      <form id="cardForm" class="form-panel">
+        <fieldset>
+          <legend>Fotoğraflar</legend>
+
+          <div class="field photo-field">
+            <label for="mainPhoto">Ana Fotoğraf (büyük, sol)</label>
+            <input type="file" id="mainPhoto" accept="image/*">
+          </div>
+
+          <div class="field photo-field">
+            <label for="photo2">Fotoğraf 2 (küçük, üst sağ)</label>
+            <input type="file" id="photo2" accept="image/*">
+          </div>
+
+          <div class="field photo-field">
+            <label for="photo3">Fotoğraf 3 (küçük, alt sağ)</label>
+            <input type="file" id="photo3" accept="image/*">
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Oyuncu Bilgileri</legend>
+
+          <div class="field">
+            <label for="fullName">Adı Soyadı</label>
+            <input type="text" id="fullName" placeholder="Örn. Eren Hacısalihoğlu">
+          </div>
+
+          <div class="field">
+            <label for="character">Karakter</label>
+            <input type="text" id="character" placeholder="Örn. Abdullah">
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="birthDate">Doğum Tarihi</label>
+              <input type="text" id="birthDate" placeholder="Örn. 1986">
+            </div>
+            <div class="field">
+              <label for="height">Boy (cm)</label>
+              <input type="text" id="height" placeholder="Örn. 177">
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Projeler (Dizi)</legend>
+          <div class="field">
+            <label for="projects">Her satıra bir proje adı yazın</label>
+            <textarea id="projects" rows="10" placeholder="CENNETİN ÇOCUKLARI&#10;TEŞKİLAT&#10;ÇIRAK"></textarea>
+          </div>
+        </fieldset>
+
+        <div class="actions">
+          <button type="button" id="generateBtn">Kartı Oluştur</button>
+          <button type="button" id="downloadBtn" disabled>PNG İndir</button>
+        </div>
+        <div class="actions">
+          <button type="button" id="newBtn" class="secondary">Yeni</button>
+        </div>
+      </form>
+
+      <div class="preview-panel">
+        <canvas id="cardCanvas" width="1600" height="1025"></canvas>
+        <p class="hint" id="previewHint">Önizleme burada görünecek.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+:root {
+  --bg: #0e0e0e;
+  --panel: #1a1a1a;
+  --panel-border: #2c2c2c;
+  --gold: #c8a165;
+  --text: #eae6df;
+  --muted: #9a9a9a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+}
+
+.app-header h1 {
+  margin: 0 0 4px;
+  font-size: 28px;
+  letter-spacing: 0.5px;
+}
+
+.app-header p {
+  margin: 0 0 24px;
+  color: var(--muted);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+@media (max-width: 960px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-panel {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+fieldset {
+  border: 1px solid var(--panel-border);
+  border-radius: 8px;
+  padding: 14px 16px 18px;
+}
+
+legend {
+  color: var(--gold);
+  padding: 0 6px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.field:first-child {
+  margin-top: 0;
+}
+
+.field-row {
+  display: flex;
+  gap: 12px;
+}
+
+.field-row .field {
+  flex: 1;
+}
+
+label {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+input[type="text"],
+input[type="file"],
+textarea {
+  background: #101010;
+  border: 1px solid var(--panel-border);
+  border-radius: 6px;
+  color: var(--text);
+  padding: 9px 10px;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+textarea {
+  resize: vertical;
+  line-height: 1.5;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--gold);
+  background: transparent;
+  color: var(--gold);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+button:hover:not(:disabled) {
+  background: var(--gold);
+  color: #141414;
+}
+
+button.secondary {
+  border-color: var(--panel-border);
+  color: var(--muted);
+}
+
+button.secondary:hover:not(:disabled) {
+  background: var(--panel-border);
+  color: var(--text);
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.preview-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+#cardCanvas {
+  width: 100%;
+  max-width: 960px;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--panel-border);
+  background: #000;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 13px;
+}
