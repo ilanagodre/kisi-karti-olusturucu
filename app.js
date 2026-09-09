@@ -191,10 +191,12 @@ function drawCard() {
   }
   ctx.fillText(name || 'ADI SOYADI', rightX, REF.nameBaseline * H);
 
-  // Character
-  ctx.fillStyle = '#ffffff';
-  ctx.font = `${Math.round(H * 0.043)}px "Segoe UI", sans-serif`;
-  ctx.fillText(`Karakter: ${character || '-'}`, rightX, REF.karakterBaseline * H);
+  // Character (only drawn when provided)
+  if (character) {
+    ctx.fillStyle = '#ffffff';
+    ctx.font = `${Math.round(H * 0.043)}px "Segoe UI", sans-serif`;
+    ctx.fillText(`Karakter: ${character}`, rightX, REF.karakterBaseline * H);
+  }
 
   // Birth date | Height
   const metaParts = [];
