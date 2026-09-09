@@ -45,27 +45,6 @@ els.photo3.addEventListener('change', async (e) => {
   loadedImages.photo3 = await readFileAsImage(e.target.files[0]);
 });
 
-// Draws an image cropped/scaled to cover a target box (like CSS object-fit: cover)
-function drawImageCover(context, img, x, y, w, h) {
-  const imgRatio = img.width / img.height;
-  const boxRatio = w / h;
-  let sx, sy, sw, sh;
-
-  if (imgRatio > boxRatio) {
-    sh = img.height;
-    sw = sh * boxRatio;
-    sx = (img.width - sw) / 2;
-    sy = 0;
-  } else {
-    sw = img.width;
-    sh = sw / boxRatio;
-    sx = 0;
-    sy = (img.height - sh) / 2;
-  }
-
-  context.drawImage(img, sx, sy, sw, sh, x, y, w, h);
-}
-
 // Draws an image scaled to fit entirely inside a target box without cropping
 // (like CSS object-fit: contain), filling any leftover space with the card
 // background so the whole original photo stays visible.
@@ -158,7 +137,7 @@ function drawCard() {
   const mainH = (REF.mainY1 - REF.mainY0) * H;
 
   if (loadedImages.main) {
-    drawImageCover(ctx, loadedImages.main, mainX, mainY, mainW, mainH);
+    drawImageContain(ctx, loadedImages.main, mainX, mainY, mainW, mainH, '#111111');
   } else {
     drawPlaceholder(ctx, mainX, mainY, mainW, mainH, 'Ana Fotoğraf');
   }
